@@ -85,11 +85,13 @@ function pickCompare(){
 				secondPick.classList.add("defaultSquare");
 				firstPick = null;
 				secondPick = null;
+				clearTimeout();
 			}else{
 				correctCount++;
 				score.textContent = correctCount;
 				firstPick = null;
 				secondPick = null;
+				clearTimeout();
 				if (correctCount === 6){
 					win();
 				}
@@ -101,6 +103,7 @@ function pickCompare(){
 
 function win(){
 	space.textContent = "Congratulations You Win!"
+	clearTimeout();
 }
 
 
