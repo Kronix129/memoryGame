@@ -6,6 +6,8 @@ var colors = [
 	"rgb(255, 255, 0)",
 	"rgb(0, 255, 255)"
 ];
+
+//array of objects for each square
 var colouredSquares = [
 	{isColored: false, color:""},
 	{isColored: false, color:""},
@@ -52,6 +54,7 @@ for(var i = 0; i < squares.length; i++){
 	squares[i].addEventListener("click", function(){
 		this.classList.remove("defaultSquare");
 		pickAssign(this);
+		//delay used to stop squares immediately going back to revealed state when not the same
 		setTimeout(pickCompare, 1800);
 	});
 };
@@ -62,7 +65,7 @@ restart.addEventListener("click", function(){
 })
 
 
-//when a square is clicked, it will reveal it's underlying color
+//assigns the users first and second pick to variables
 function pickAssign(pickedSquare){
 	if (firstPick === null){
 		firstPick = pickedSquare;
@@ -73,9 +76,11 @@ function pickAssign(pickedSquare){
 	};
 };
 
+//compares the two picks
 function pickCompare(){
 	if(firstPick !== null & secondPick !== null){
 			if(firstPick.style.backgroundColor !== secondPick.style.backgroundColor){
+				//if picks are not the same, the colors are hidden once more
 				firstPick.classList.add("defaultSquare");
 				secondPick.classList.add("defaultSquare");
 				firstPick = null;
