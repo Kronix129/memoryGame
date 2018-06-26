@@ -4,3 +4,6 @@ This is my implementation of a memory game through java script. Users choose two
 - Occassionally the transitioning between revealed and non revealed squares or vise versa may be a little quicker than normal, not 100% sure of this reasoning but I'm thinking it's due to a bit of input or browser lag.
 - The game is made for a Responsive Web Design, therefore it should scale to any browser size/screen size that is being used.
 - Play on 80% - 90% zoom for the best experience.
+
+
+![memorygame](https://user-images.githubusercontent.com/26485048/41918281-2a515fca-79b0-11e8-9167-83df6f2acd26.jpg)
