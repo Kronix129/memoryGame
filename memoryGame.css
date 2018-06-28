@@ -58,7 +58,7 @@ h1{
 	color: black;
 }
 
-#scoreFormat{
+.scoreFormat{
 	height: 100%;
 }
 
@@ -70,6 +70,7 @@ button{
 	letter-spacing: 1px;
 	color: #e52253;
 	font-weight: 700;
+	outline: none;
 
 }
 

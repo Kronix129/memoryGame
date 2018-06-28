@@ -29,6 +29,8 @@ var correctCount = 0;
 var score = document.querySelector("#score");
 var space = document.querySelector("#space");
 var restart = document.querySelector("#restart");
+var attempts = 0;
+var attemptDisplay = document.querySelector("#attempts");
 
 //color each square
 //choose color in list
@@ -48,21 +50,44 @@ for(var i = 0; i < colors.length; i++){
 	};
 };
 
-//add the default layer to squares, hiding the underlying color
-for(var i = 0; i < squares.length; i++){
-	squares[i].classList.add("defaultSquare");
-	squares[i].addEventListener("click", function(){
-		this.classList.remove("defaultSquare");
-		pickAssign(this);
-		//delay used to stop squares immediately going back to revealed state when not the same
-		setTimeout(pickCompare, 1800);
-	});
-};
 
+$(".square").addClass("defaultSquare");
+
+//add the default layer to squares, hiding the underlying color
+// for(var i = 0; i < squares.length; i++){
+// 	squares[i].classList.add("defaultSquare");
+// 	squares[i].addEventListener("click", function(){
+// 		this.classList.remove("defaultSquare");
+// 		pickAssign(this);
+// 		//delay used to stop squares immediately going back to revealed state when not the same
+// 		setTimeout(pickCompare, 1800);
+// 	});
+// };
+
+// $(".square").click(function(){
+// 	$(this).removeClass("defaultSquare");
+// 	pickAssign(this);
+// 	setTimeout(pickCompare, 1800);
+// });
 
 restart.addEventListener("click", function(){
 	location.reload();
 })
+
+// function notify() {
+//   alert( "clicked" );
+// }
+// $( ".square" ).on( "click", notify );
+
+var handler = function() {
+	$( ".square" ).unbind( "click", handler );
+	$(this).removeClass("defaultSquare");
+	pickAssign(this);
+	setTimeout(pickCompare, 500);
+
+};
+$( ".square" ).bind( "click", handler );
+
 
 
 //assigns the users first and second pick to variables
@@ -71,9 +96,7 @@ function pickAssign(pickedSquare){
 		firstPick = pickedSquare;
 	}else if(secondPick === null & pickedSquare !== firstPick){
 		secondPick = pickedSquare;
-	}else{
-		
-	};
+	}
 };
 
 //compares the two picks
@@ -85,12 +108,16 @@ function pickCompare(){
 				secondPick.classList.add("defaultSquare");
 				firstPick = null;
 				secondPick = null;
-				clearTimeout();
+				attempts++;
+				attemptDisplay.textContent = attempts;
+				
 			}else{
 				correctCount++;
 				score.textContent = correctCount;
 				firstPick = null;
 				secondPick = null;
+				attempts++;
+				attemptDisplay.textContent = attempts;
 				clearTimeout();
 				if (correctCount === 6){
 					win();
@@ -98,12 +125,13 @@ function pickCompare(){
 			}
 		}	
 	clearTimeout();
+	$( ".square" ).bind( "click", handler );
 };
 
 
 function win(){
-	space.textContent = "Congratulations You Win!"
-	clearTimeout();
+	space.textContent = "You Win!"
+	
 }
 
 
