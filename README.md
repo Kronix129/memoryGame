@@ -7,3 +7,6 @@ This is my implementation of a memory game through JavaScript, displayed under g
 
 
 ![image](https://user-images.githubusercontent.com/26485048/42009444-6ec8a134-7ade-11e8-9879-fac15add8126.png)
+
+# Game on smaller window
+![image](https://user-images.githubusercontent.com/26485048/42009511-c234183a-7ade-11e8-9301-2b2560f79f12.png)
