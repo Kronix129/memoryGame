@@ -81,14 +81,21 @@ restart.addEventListener("click", function(){
 
 var handler = function() {
 	$( ".square" ).unbind( "click", handler );
-	$(this).removeClass("defaultSquare");
+	// 	if($(this).css("background-color") !== "rgb(229, 34, 83)"){
+	// 	done();
+	// }
+
+	$(this).removeClass("defaultSquare")
 	pickAssign(this);
 	setTimeout(pickCompare, 500);
 
 };
-$( ".square" ).bind( "click", handler );
+$( ".clickable" ).bind( "click", handler );
 
-
+// function done(){
+// 	console.log("yes");
+// 	$( ".square" ).bind( "click", handler );
+// }
 
 //assigns the users first and second pick to variables
 function pickAssign(pickedSquare){
@@ -114,6 +121,8 @@ function pickCompare(){
 			}else{
 				correctCount++;
 				score.textContent = correctCount;
+				firstPick.classList.remove("clickable");
+				secondPick.classList.remove("clickable");
 				firstPick = null;
 				secondPick = null;
 				attempts++;
@@ -125,7 +134,7 @@ function pickCompare(){
 			}
 		}	
 	clearTimeout();
-	$( ".square" ).bind( "click", handler );
+	$( ".clickable" ).bind( "click", handler );
 };
 
 
