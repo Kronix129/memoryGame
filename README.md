@@ -1,7 +1,7 @@
 # MemoryGame 
 play now - https://kronix129.github.io/memoryGame/memoryGame.html </br>
 
--This is my implementation of a memory game through JavaScript, displayed under games on my website. 
+- This is my implementation of a memory game through JavaScript, displayed under games on my website. 
 - It implements DOM manipulation through vanilla JS and JQuery.
 
 Users choose two squares that they think will match, if they match the user will receive one point and the squares will remain unrevealed. If squares do not match, they are revealed once again.
