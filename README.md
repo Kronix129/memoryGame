@@ -1,5 +1,5 @@
 # MemoryGame 
-play now - https://kronix129.github.io/memoryGame/memoryGame.html </br>
+play now -https://nik-howe.herokuapp.com/memory-game </br>
 
 - This is my implementation of a memory game through JavaScript, displayed under games on my website. 
 - It implements DOM manipulation through vanilla JS and JQuery.
